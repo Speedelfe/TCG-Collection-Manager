@@ -7,7 +7,26 @@
   <Design.DataContext>
     <vm:MainWindowViewModel/>
   </Design.DataContext>
-  
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>    
-  
+  <Grid RowDefinitions="Auto,1*">
+    <TextBox Grid.Row="0" Text="Suche" Width="200" HorizontalAlignment="Left" Margin="15,0"/>
+    <Grid ColumnDefinitions="1*,Auto,2*" Grid.Row="1">
+      <Grid Grid.Column="0">
+        <ItemsControl Items="{Binding Cards}">
+          <ItemsControl.DataTemplates>
+            <DataTemplate>
+              <Grid ColumnDefinitions="1*,5*,1*">
+                <TextBlock Grid.Column="0" Text="1234567890"/>
+                <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+                <TextBox Grid.Column="2" Text="Besitzkram"/>
+              </Grid>
+            </DataTemplate>
+          </ItemsControl.DataTemplates>
+        </ItemsControl>
+      </Grid>
+      <GridSplitter Classes="vertical" Grid.Column="1" Width="6"/>
+      <Grid Grid.Column="2">
+
+      </Grid>
+    </Grid>
+  </Grid>
 </Window>
